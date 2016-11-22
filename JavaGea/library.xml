@@ -10,6 +10,7 @@
             <secondSurname>Martinez</secondSurname>
             <salary>2000.36</salary>
             <numberBooks>150</numberBooks>
+            <localDate>2016-11-22</localDate>
         </author>
         <author id="0" code="XXX-0254-987-300">
             <firstName>Martha</firstName>
@@ -18,6 +19,7 @@
             <secondSurname>Pozo</secondSurname>
             <salary>547.26</salary>
             <numberBooks>300</numberBooks>
+            <localDate>2016-11-22</localDate>
         </author>
         <author id="0" code="XXX-0254-987-845">
             <firstName>Leydis</firstName>
@@ -26,6 +28,7 @@
             <secondSurname>Giro</secondSurname>
             <salary>9666.36</salary>
             <numberBooks>845</numberBooks>
+            <localDate>2016-11-22</localDate>
         </author>
     </authorList>
 </library>

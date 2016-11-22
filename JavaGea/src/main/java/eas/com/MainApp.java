@@ -17,7 +17,7 @@ public class MainApp {
     public static void main(String[] args) throws JAXBException {
 
 
-        Author author = new Author("Nelson", "Eduardo", "Alfonso", "Martinez", 150, 2000.36f);
+        Author author = new Author("Nelson", "Eduardo", "Alfonso", "Martinez", 150, 2000.36f, "Adventure");
 
         /* init jaxb marshaller */
         JAXBContext jaxbContext = JAXBContext.newInstance(Author.class);

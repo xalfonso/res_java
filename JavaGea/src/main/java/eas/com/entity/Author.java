@@ -1,9 +1,13 @@
 package eas.com.entity;
 
+import eas.com.adapter.DateAdapter;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.time.LocalDate;
 
 /**
  * Created by eduardo on 11/20/2016.
@@ -12,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  *  @XmlType(propOrder ... for specifying the order of the elements and attributes
  */
-@XmlType(propOrder = {"firstName", "secondName", "firstSurname", "secondSurname", "salary", "numberBooks","id", "code"})
+@XmlType(propOrder = {"genre", "firstName", "secondName", "firstSurname", "secondSurname", "salary", "numberBooks","id", "code", "localDate"})
 @XmlRootElement
 public class Author {
 
@@ -32,8 +36,12 @@ public class Author {
 
     private float salary;
 
+    private String genre;
 
-    public Author(String firstName, String secondName, String firstSurname, String secondSurname,int numberBooks, float salary) {
+    private LocalDate localDate = LocalDate.now();
+
+
+    public Author(String firstName, String secondName, String firstSurname, String secondSurname,int numberBooks, float salary, String genre) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.firstSurname = firstSurname;
@@ -41,6 +49,7 @@ public class Author {
         this.numberBooks = numberBooks;
         this.salary = salary;
         this.code = "XXX-0254-987-" + this.numberBooks;
+        this.genre = genre;
     }
 
     public Author() {
@@ -50,11 +59,15 @@ public class Author {
     @Override
     public String toString() {
         return "Author{" +
-                "id=" + id +
+                "code='" + code + '\'' +
+                ", id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", firstSurname='" + firstSurname + '\'' +
                 ", secondSurname='" + secondSurname + '\'' +
+                ", numberBooks=" + numberBooks +
+                ", salary=" + salary +
+                ", localDate=" + localDate +
                 '}';
     }
 
@@ -127,5 +140,23 @@ public class Author {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    @XmlJavaTypeAdapter(DateAdapter.class)
+    public LocalDate getLocalDate() {
+        return localDate;
+    }
+
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
+    }
+
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

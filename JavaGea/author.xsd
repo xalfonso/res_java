@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:simpleType name="genreType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="Adventure|Horror|Thriller|Fantasy"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="numberBook">
+        <xs:restriction base="xs:integer">
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:attributeGroup name="authorAttr">
+        <xs:attribute name="id" type="xs:long"/>
+        <xs:attribute name="code" type="xs:string"/>
+    </xs:attributeGroup>
+
+    <xs:element name="author">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="genre" type="genreType"/>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="secondName" type="xs:string"/>
+                <xs:element name="firstSurname" type="xs:string"/>
+                <xs:element name="secondSurname" type="xs:string"/>
+                <xs:element name="salary" type="xs:float"/>
+                <xs:element name="numberBooks" type="numberBook"/>
+                <xs:element name="localDate" type="xs:string"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="authorAttr"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
