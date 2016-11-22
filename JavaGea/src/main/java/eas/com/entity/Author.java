@@ -40,7 +40,7 @@ public class Author {
         this.secondSurname = secondSurname;
         this.numberBooks = numberBooks;
         this.salary = salary;
-        this.code = "XXX-0254-987";
+        this.code = "XXX-0254-987-" + this.numberBooks;
     }
 
     public Author() {

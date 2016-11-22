@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<library code="LIB-CH-005">
+    <name>Abraham lincoln Library</name>
+    <province>Chicago</province>
+    <authorList>
+        <author id="0" code="XXX-0254-987-150">
+            <firstName>Nelson</firstName>
+            <secondName>Eduardo</secondName>
+            <firstSurname>Alfonso</firstSurname>
+            <secondSurname>Martinez</secondSurname>
+            <salary>2000.36</salary>
+            <numberBooks>150</numberBooks>
+        </author>
+        <author id="0" code="XXX-0254-987-300">
+            <firstName>Martha</firstName>
+            <secondName>Paula</secondName>
+            <firstSurname>Martinez</firstSurname>
+            <secondSurname>Pozo</secondSurname>
+            <salary>547.26</salary>
+            <numberBooks>300</numberBooks>
+        </author>
+        <author id="0" code="XXX-0254-987-845">
+            <firstName>Leydis</firstName>
+            <secondName>Esther</secondName>
+            <firstSurname>Garzon</firstSurname>
+            <secondSurname>Giro</secondSurname>
+            <salary>9666.36</salary>
+            <numberBooks>845</numberBooks>
+        </author>
+    </authorList>
+</library>

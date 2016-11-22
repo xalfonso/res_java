@@ -9,6 +9,8 @@ import java.io.File;
 
 /**
  * Created by eduardo on 11/20/2016.
+ *
+ * Create a simple xml of Author class
  */
 public class MainApp {
 

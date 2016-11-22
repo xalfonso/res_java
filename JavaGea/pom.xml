@@ -7,6 +7,8 @@
     <groupId>eas.com</groupId>
     <artifactId>java-gea</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <description>Tips: Uso of JAXB package, save xml to file, save xml to system.out (Stream)</description>
+    <description>Tips: Use of JAXB package, save xml to file, save xml to system.out (Stream). Use of Annotations: XmlRootElement, XmlType,
+        XmlAttribute, XmlElement, XmlElementWrapper
+    </description>
 
 </project>
