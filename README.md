@@ -5,4 +5,4 @@
    1. Main Packages:
     javax.xml.bind; org.xml.sax;
    2. Tips:
-   Use of JAXB package, save xml to file, save xml to system.out (Stream). Create custom converter (adapter). Validating with XSD. Use of Annotations: XmlRootElement, XmlType,   XmlAttribute, XmlElement, XmlElementWrapper, XmlJavaTypeAdapter   
+   Use of JAXB package, save xml to file, save xml to system.out (Stream), read from xml. Create custom converter (adapter). Validating with XSD. Use of Annotations: XmlRootElement, XmlType,   XmlAttribute, XmlElement, XmlElementWrapper, XmlJavaTypeAdapter   
