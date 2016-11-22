@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 /**
  * Created by eduardo on 11/22/2016.
+ * Custom converter for type that is not supported by jaxb. In this case: LocalDate
  */
 public class DateAdapter extends XmlAdapter<String, LocalDate> {
 

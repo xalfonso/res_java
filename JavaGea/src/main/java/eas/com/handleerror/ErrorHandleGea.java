@@ -6,6 +6,7 @@ import org.xml.sax.SAXParseException;
 
 /**
  * Created by eduardo on 11/22/2016.
+ * For handle error in validation with schema
  */
 public class ErrorHandleGea implements ErrorHandler {
     @Override
