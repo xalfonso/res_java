@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eas.com</groupId>
+    <artifactId>java-urano</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>Tips: Read json from File to Model Data (Tree in Memory), Create json model (Tree in Memory) and save to file,
+    Read json data from file as stream, Write Json to file as Stream</description>
+
+
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <javax-json-api.version>1.0</javax-json-api.version>
+        <javax-json-impl.version>1.0.4</javax-json-impl.version>
+    </properties>
+
+
+    <!-- https://mvnrepository.com/artifact/javax.json/javax.json-api -->
+    <dependencies>
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>${javax-json-api.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.glassfish/javax.json  Default provider of java api json -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>${javax-json-impl.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Plugin for compiling with specific jdk -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
