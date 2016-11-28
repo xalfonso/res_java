@@ -10,7 +10,7 @@ import java.io.File;
 /**
  * Created by eduardo on 11/21/2016.
  * <p>
- * For convert FROM XML to simple Java Object
+ * FROM XML to simple Java Object
  */
 public class MainApp2 {
 
