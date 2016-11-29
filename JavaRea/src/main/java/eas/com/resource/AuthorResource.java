@@ -11,8 +11,8 @@ import javax.ws.rs.core.Response;
 public interface AuthorResource {
 
     /**
-     * Multiple MediaType of Response. The client must specify in the header Accept:
-     * application/json or application/xml for selecting the format that want
+     * Multiple MediaType of Response. The client must specify in the header
+     * "Accept: application/json" or "Accept: application/xml" for selecting the format that he wants
      *
      * @return Response (List of Authors)
      */
