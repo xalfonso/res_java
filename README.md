@@ -5,7 +5,7 @@
    1. Main Packages:
     javax.xml.bind; org.xml.sax;
    2. Tips:
-   Use of JAXB package, save xml to file, save xml to system.out (Stream), read from xml. Create custom converter (adapter). Validating with XSD. Use of Annotations: XmlRootElement, XmlType,   XmlAttribute, XmlElement, XmlElementWrapper, XmlJavaTypeAdapter   
+   Use of JAXB package, save xml to file, save xml to system.out (Stream), read from xml. Collection Wrapper. Create custom converter (adapter). Validating with XSD. Use of Annotations: XmlRootElement, XmlType,   XmlAttribute, XmlElement, XmlElementWrapper, XmlJavaTypeAdapter   
  2. JavaUrano
    1. Main Dependencies:
     javax.json > javax.json-api > 1.0; org.glassfish > javax.json > 1.0.4
