@@ -8,6 +8,10 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>java-rea</name>
+    <description>
+         Tips: Api rest. Test Api rest with JUnit. Client Api Rest. Jersey Api Implementation. Embedded Grizzly Server. Api rest consume and produce JSON and XML.
+    </description>
+
 
     <build>
         <finalName>java-rea</finalName>
