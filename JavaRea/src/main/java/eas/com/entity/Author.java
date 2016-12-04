@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * Created by eduardo on 11/28/2016.
  */
-@XmlType(propOrder = {"id", "firstName", "secondName", "firstSurname", "secondSurname"})
+@XmlType(propOrder = {"id", "firstName", "secondName", "firstSurname", "secondSurname", "genre", "country"})
 @XmlRootElement
 public class Author {
 
@@ -22,13 +22,19 @@ public class Author {
 
     private String secondSurname;
 
+    private String country;
 
-    public Author(long id, String firstName, String secondName, String firstSurname, String secondSurname) {
+    private String genre;
+
+
+    public Author(long id, String firstName, String secondName, String firstSurname, String secondSurname, String country, String genre) {
+        this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
         this.firstSurname = firstSurname;
         this.secondSurname = secondSurname;
-        this.id = id;
+        this.country = country;
+        this.genre = genre;
     }
 
     public Author() {
@@ -90,5 +96,21 @@ public class Author {
     public Author setSecondSurname(String secondSurname) {
         this.secondSurname = secondSurname;
         return this;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 }

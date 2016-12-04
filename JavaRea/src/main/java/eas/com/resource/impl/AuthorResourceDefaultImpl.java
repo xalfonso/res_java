@@ -5,6 +5,7 @@ import eas.com.entity.Author;
 import eas.com.resource.AuthorResource;
 import eas.com.service.AuthorService;
 import eas.com.service.impl.AuthorServiceDefaultImpl;
+import eas.com.util.criteria.CriteriaAuthor;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -23,11 +24,17 @@ public class AuthorResourceDefaultImpl implements AuthorResource {
     private AuthorService authorService = new AuthorServiceDefaultImpl();
 
     @Override
-    public Response getAll() {
+    public Response getAll(String genre, String country) {
+        CriteriaAuthor criteriaAuthor = new CriteriaAuthor(country, genre);
         GenericEntity<List<Author>> list = null;
         try {
-            list = new GenericEntity<List<Author>>(this.authorService.getAll()) {
-            };
+            if (criteriaAuthor.emptyParam()) {
+                list = new GenericEntity<List<Author>>(this.authorService.getAll()) {
+                };
+            } else {
+                list = new GenericEntity<List<Author>>(this.authorService.getAllByCriteria(criteriaAuthor)) {
+                };
+            }
         } catch (Throwable e) {
             /*When happens an exception the media type is text*/
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
@@ -40,11 +47,10 @@ public class AuthorResourceDefaultImpl implements AuthorResource {
     public Response get(long id) {
         Author author = null;
         try {
-           author = this.authorService.get(id);
-        }catch (AuthorExceptionNoFound e){
+            author = this.authorService.get(id);
+        } catch (AuthorExceptionNoFound e) {
             return Response.status(Response.Status.NOT_FOUND).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
-        }
-        catch (Throwable e) {
+        } catch (Throwable e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
         }
 
@@ -55,10 +61,37 @@ public class AuthorResourceDefaultImpl implements AuthorResource {
     public Response insert(Author author) {
         try {
             this.authorService.insert(author);
-        }catch (Throwable e) {
+        } catch (Throwable e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
         }
 
         return Response.status(Response.Status.CREATED).entity(author).build();
+    }
+
+    @Override
+    public Response update(long id, Author author) {
+        try {
+            author.setId(id);
+            this.authorService.update(author);
+        } catch (AuthorExceptionNoFound e) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
+        } catch (Throwable e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
+        }
+
+        return Response.status(Response.Status.CREATED).entity(author).build();
+    }
+
+    @Override
+    public Response delete(long id) {
+        try {
+            this.authorService.delete(id);
+        } catch (AuthorExceptionNoFound e) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
+        } catch (Throwable e) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error detected. Cause: " + e.getMessage()).type(MediaType.TEXT_PLAIN).build();
+        }
+
+        return Response.status(Response.Status.NO_CONTENT).build();
     }
 }

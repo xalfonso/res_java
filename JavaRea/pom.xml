@@ -10,6 +10,7 @@
     <name>java-rea</name>
     <description>
          Tips: Api rest. Test Api rest with JUnit. Client Api Rest. Jersey Api Implementation. Embedded Grizzly Server. Api rest consume and produce JSON and XML.
+         Criteria for search.
     </description>
 
 
@@ -44,9 +45,8 @@
     <dependencies>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet-core</artifactId>
-            <!-- use the following artifactId if you don't need servlet 2.x compatibility -->
-            <!-- artifactId>jersey-container-servlet</artifactId -->
+            <!-- <artifactId>jersey-container-servlet-core</artifactId>  For servlet 2.5-->
+             <artifactId>jersey-container-servlet</artifactId> <!-- For servlet 3.0 or later. I am -->
         </dependency>
         <!-- JSON support-->
         <dependency>
@@ -63,11 +63,18 @@
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-grizzly2-http</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servletapi.version}</version>
+        </dependency>
 
     </dependencies>
     <properties>
         <jersey.version>2.24</jersey.version>
         <junit.version>4.12</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <servletapi.version>4.0.0-b01</servletapi.version>
     </properties>
 </project>
