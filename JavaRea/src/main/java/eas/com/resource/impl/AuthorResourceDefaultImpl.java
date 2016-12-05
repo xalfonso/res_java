@@ -24,8 +24,7 @@ public class AuthorResourceDefaultImpl implements AuthorResource {
     private AuthorService authorService = new AuthorServiceDefaultImpl();
 
     @Override
-    public Response getAll(String genre, String country) {
-        CriteriaAuthor criteriaAuthor = new CriteriaAuthor(country, genre);
+    public Response getAll(CriteriaAuthor criteriaAuthor) {
         GenericEntity<List<Author>> list = null;
         try {
             if (criteriaAuthor.emptyParam()) {

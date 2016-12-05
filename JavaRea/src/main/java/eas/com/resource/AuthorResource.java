@@ -1,6 +1,7 @@
 package eas.com.resource;
 
 import eas.com.entity.Author;
+import eas.com.util.criteria.CriteriaAuthor;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -24,7 +25,7 @@ public interface AuthorResource {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response getAll(@QueryParam("genre") String genre, @QueryParam("country") String country);
+    public Response getAll(@BeanParam CriteriaAuthor criteriaAuthor);
 
     /**
      * Author by Id
