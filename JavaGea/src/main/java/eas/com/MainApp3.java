@@ -14,14 +14,17 @@ import java.io.File;
  */
 public class MainApp3 {
     public static void main(String[] args) throws JAXBException {
+        /* File for Reading */
         File file = new File("library.xml");
 
+         /* init jaxb unmarshaller */
         JAXBContext jaxbContext = JAXBContext.newInstance(Library.class);
-
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
+        /* unmarshaller xml to java object */
         Library library = (Library) jaxbUnmarshaller.unmarshal(file);
 
+        /* print java object*/
         System.out.println(library);
     }
 }

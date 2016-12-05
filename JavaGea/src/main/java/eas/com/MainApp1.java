@@ -17,9 +17,9 @@ public class MainApp1 {
 
     public static void main(String[] args) throws JAXBException {
 
-        Author author = new Author("Nelson", "Eduardo", "Alfonso", "Martinez", 150, 2000.36f, "Adventure");
+        Author author = new Author("Javier", "Lorenzo", "Fernandez", "Perez", 150, 2000.36f, "Adventure");
         Author author1 = new Author("Martha", "Paula", "Martinez", "Pozo", 300, 547.26f, "Horror");
-        Author author2 = new Author("Leydis", "Esther", "Garzon", "Giro", 845, 9666.36f, "Thriller");
+        Author author2 = new Author("Isabella", "Esther", "Sanchez", "Smith", 845, 9666.36f, "Thriller");
 
         Library library = new Library("LIB-CH-005", "Abraham lincoln Library", "Chicago");
 

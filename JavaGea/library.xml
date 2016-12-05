@@ -3,32 +3,35 @@
     <name>Abraham lincoln Library</name>
     <province>Chicago</province>
     <authorList>
-        <author id="0" code="XXX-0254-987-150">
-            <firstName>Nelson</firstName>
-            <secondName>Eduardo</secondName>
-            <firstSurname>Alfonso</firstSurname>
-            <secondSurname>Martinez</secondSurname>
+        <authorList id="0" code="XXX-0254-987-150">
+            <genre>Adventure</genre>
+            <firstName>Javier</firstName>
+            <secondName>Lorenzo</secondName>
+            <firstSurname>Fernandez</firstSurname>
+            <secondSurname>Perez</secondSurname>
             <salary>2000.36</salary>
             <numberBooks>150</numberBooks>
-            <localDate>2016-11-22</localDate>
-        </author>
-        <author id="0" code="XXX-0254-987-300">
+            <localDate>2016-12-05</localDate>
+        </authorList>
+        <authorList id="0" code="XXX-0254-987-300">
+            <genre>Horror</genre>
             <firstName>Martha</firstName>
             <secondName>Paula</secondName>
             <firstSurname>Martinez</firstSurname>
             <secondSurname>Pozo</secondSurname>
             <salary>547.26</salary>
             <numberBooks>300</numberBooks>
-            <localDate>2016-11-22</localDate>
-        </author>
-        <author id="0" code="XXX-0254-987-845">
-            <firstName>Leydis</firstName>
+            <localDate>2016-12-05</localDate>
+        </authorList>
+        <authorList id="0" code="XXX-0254-987-845">
+            <genre>Thriller</genre>
+            <firstName>Isabella</firstName>
             <secondName>Esther</secondName>
-            <firstSurname>Garzon</firstSurname>
-            <secondSurname>Giro</secondSurname>
+            <firstSurname>Sanchez</firstSurname>
+            <secondSurname>Smith</secondSurname>
             <salary>9666.36</salary>
             <numberBooks>845</numberBooks>
-            <localDate>2016-11-22</localDate>
-        </author>
+            <localDate>2016-12-05</localDate>
+        </authorList>
     </authorList>
 </library>
