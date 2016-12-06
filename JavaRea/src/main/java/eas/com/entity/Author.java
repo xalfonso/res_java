@@ -2,7 +2,10 @@ package eas.com.entity;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by eduardo on 11/28/2016.
@@ -25,6 +28,8 @@ public class Author {
     private String country;
 
     private String genre;
+
+    private Map<String, Book> bookMap = new HashMap<>();
 
 
     public Author(long id, String firstName, String secondName, String firstSurname, String secondSurname, String country, String genre) {
@@ -112,5 +117,15 @@ public class Author {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+
+    @XmlTransient
+    public Map<String, Book> getBookMap() {
+        return bookMap;
+    }
+
+    public void setBookMap(Map<String, Book> bookMap) {
+        this.bookMap = bookMap;
     }
 }
