@@ -27,9 +27,6 @@ public class CriteriaAuthor implements Criteria<Author> {
     public CriteriaAuthor() {
     }
 
-    /**
-     * @return true if do not exist some param to search, false otherwise
-     */
     @Override
     public boolean emptyParam() {
         return (this.country == null || this.country.isEmpty())

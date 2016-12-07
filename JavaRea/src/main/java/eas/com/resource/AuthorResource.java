@@ -67,4 +67,12 @@ public interface AuthorResource {
     @Path("/{id}")
     public Response delete(@PathParam("id") long id);
 
+
+    /**
+     * Mapping to sub resource
+     * @return
+     */
+    @Path("/{authorId}/books")
+    public BookSubResource getBookResource();
+
 }

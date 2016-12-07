@@ -1,6 +1,7 @@
 package eas.com.service.impl;
 
 import eas.com.Exception.AuthorExceptionNoFound;
+import eas.com.db.DataBase;
 import eas.com.entity.Author;
 import eas.com.service.AuthorService;
 import eas.com.util.criteria.CriteriaAuthor;
@@ -16,56 +17,47 @@ import java.util.stream.Collectors;
  */
 public class AuthorServiceDefaultImpl implements AuthorService {
 
-    /**
-     * For simulating the data base
-     */
-    static private Map<Long, Author> dataAuthor = new HashMap<>();
-
-    static {
-        dataAuthor.put(1L, new Author(1L, "Leydis", "Esther", "Garzon", "Giro", "US", "Horror"));
-        dataAuthor.put(2L, new Author(2L, "Yamile", "Yaquelin", "Sanchez", "Acosta", "SP", "Drama"));
-    }
 
     public AuthorServiceDefaultImpl() {
     }
 
     @Override
     public List<Author> getAll() {
-        return new ArrayList<>(dataAuthor.values());
+        return new ArrayList<>(DataBase.getDataAuthor().values());
     }
 
     @Override
     public List<Author> getAllByCriteria(CriteriaAuthor criteriaAuthor) {
-        List<Author> authorList = dataAuthor.values().stream().filter(criteriaAuthor::assertCriteria).collect(Collectors.toList());
+        List<Author> authorList = DataBase.getDataAuthor().values().stream().filter(criteriaAuthor::assertCriteria).collect(Collectors.toList());
         return authorList;
     }
 
     @Override
     public Author get(long id) throws AuthorExceptionNoFound {
-        if (!dataAuthor.containsKey(id))
+        if (!DataBase.getDataAuthor().containsKey(id))
             throw new AuthorExceptionNoFound("There is no author with this id");
-        return dataAuthor.get(id);
+        return DataBase.getDataAuthor().get(id);
     }
 
     @Override
     public Author insert(Author author) {
-        author.setId((long) (dataAuthor.size() + 1));
-        dataAuthor.put(author.getId(), author);
+        author.setId((long) (DataBase.getDataAuthor().size() + 1));
+        DataBase.getDataAuthor().put(author.getId(), author);
         return author;
     }
 
     @Override
     public void delete(long id) throws AuthorExceptionNoFound {
-        if (!dataAuthor.containsKey(id))
+        if (!DataBase.getDataAuthor().containsKey(id))
             throw new AuthorExceptionNoFound("There is no author with this id");
-        dataAuthor.remove(id);
+        DataBase.getDataAuthor().remove(id);
     }
 
     @Override
     public Author update(Author author) throws AuthorExceptionNoFound {
-        if (!dataAuthor.containsKey(author.getId()))
+        if (!DataBase.getDataAuthor().containsKey(author.getId()))
             throw new AuthorExceptionNoFound("There is no author with this id");
-        dataAuthor.put(author.getId(), author);
+        DataBase.getDataAuthor().put(author.getId(), author);
         return author;
     }
 

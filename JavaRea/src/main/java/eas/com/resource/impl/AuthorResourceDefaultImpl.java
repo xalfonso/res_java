@@ -3,12 +3,12 @@ package eas.com.resource.impl;
 import eas.com.Exception.AuthorExceptionNoFound;
 import eas.com.entity.Author;
 import eas.com.resource.AuthorResource;
+import eas.com.resource.BookSubResource;
 import eas.com.service.AuthorService;
 import eas.com.service.impl.AuthorServiceDefaultImpl;
 import eas.com.util.criteria.CriteriaAuthor;
 
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -93,4 +93,11 @@ public class AuthorResourceDefaultImpl implements AuthorResource {
 
         return Response.status(Response.Status.NO_CONTENT).build();
     }
+
+    @Override
+    public BookSubResource getBookResource() {
+        return new BookSubResourceDefaultImpl();
+    }
+
+
 }
