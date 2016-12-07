@@ -15,4 +15,4 @@
    1. Main Dependencies:
     javax.ws.rs > javax.ws.rs > 2.0.1; org.glassfish.jersey.containers > jersey-container-servlet-core > 2.24; junit > junit > 4.12; org.glassfish.jersey.containers > jersey-container-grizzly2-http > 2.24
    2. Tips:
-   Api rest. Test Api rest with JUnit. Client Api Rest. Jersey Api Implementation. Embedded Grizzly Server. Api rest consume and produce JSON and XML. Criteria for search.
+   Api rest. Test Api rest with JUnit. Client Api Rest. Jersey Api Implementation. Embedded Grizzly Server. Api rest consume and produce JSON and XML. Criteria for search. Management Exception in JAX-RS
