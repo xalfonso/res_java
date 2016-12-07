@@ -29,7 +29,7 @@ public class Author {
 
     private String genre;
 
-    private Map<String, Book> bookMap = new HashMap<>();
+    private Map<Long, Book> bookMap = new HashMap<>();
 
 
     public Author(long id, String firstName, String secondName, String firstSurname, String secondSurname, String country, String genre) {
@@ -121,11 +121,11 @@ public class Author {
 
 
     @XmlTransient
-    public Map<String, Book> getBookMap() {
+    public Map<Long, Book> getBookMap() {
         return bookMap;
     }
 
-    public void setBookMap(Map<String, Book> bookMap) {
+    public void setBookMap(Map<Long, Book> bookMap) {
         this.bookMap = bookMap;
     }
 }

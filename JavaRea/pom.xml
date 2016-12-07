@@ -10,7 +10,7 @@
     <name>java-rea</name>
     <description>
          Tips: Api rest. Test Api rest with JUnit. Client Api Rest. Jersey Api Implementation. Embedded Grizzly Server. Api rest consume and produce JSON and XML.
-         Criteria for search.
+         Criteria for search. Exceptions in JAX-RS
     </description>
 
 

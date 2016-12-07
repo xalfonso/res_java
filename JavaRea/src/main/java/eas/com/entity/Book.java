@@ -6,29 +6,20 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * Created by eduardo on 12/1/2016.
  */
-@XmlType(propOrder = {"code", "name", "genre"})
+@XmlType(propOrder = {"id", "name", "genre"})
 @XmlRootElement
 public class Book {
 
-    private String code;
+    private long id = System.nanoTime();
     private String name;
     private String genre;
 
     public Book(String name, String genre) {
-        this.code = String.valueOf(System.nanoTime());
         this.name = name;
         this.genre = genre;
     }
 
     public Book() {
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public String getName() {
@@ -45,5 +36,13 @@ public class Book {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

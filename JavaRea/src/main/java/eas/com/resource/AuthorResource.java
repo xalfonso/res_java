@@ -4,8 +4,7 @@ import eas.com.entity.Author;
 import eas.com.util.criteria.CriteriaAuthor;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
 
 /**
  * Created by eduardo on 11/28/2016.
@@ -43,7 +42,7 @@ public interface AuthorResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Response insert(Author author);
+    public Response insert(Author author, @Context UriInfo uriInfo);
 
 
     /**
@@ -70,9 +69,9 @@ public interface AuthorResource {
 
     /**
      * Mapping to sub resource
-     * @return
+     * @return BookSubResource
      */
-    @Path("/{authorId}/books")
-    public BookSubResource getBookResource();
+    @Path("/{id}/books")
+    public BookSubResource getBookResource(@PathParam("id") long id);
 
 }

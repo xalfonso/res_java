@@ -35,7 +35,7 @@ public class AuthorServiceDefaultImpl implements AuthorService {
     @Override
     public Author get(long id) throws AuthorExceptionNoFound {
         if (!DataBase.getDataAuthor().containsKey(id))
-            throw new AuthorExceptionNoFound("There is no author with this id");
+            throw new AuthorExceptionNoFound("There is no author with this id: " + id);
         return DataBase.getDataAuthor().get(id);
     }
 
@@ -49,14 +49,14 @@ public class AuthorServiceDefaultImpl implements AuthorService {
     @Override
     public void delete(long id) throws AuthorExceptionNoFound {
         if (!DataBase.getDataAuthor().containsKey(id))
-            throw new AuthorExceptionNoFound("There is no author with this id");
+            throw new AuthorExceptionNoFound("There is no author with this id: " + id);
         DataBase.getDataAuthor().remove(id);
     }
 
     @Override
     public Author update(Author author) throws AuthorExceptionNoFound {
         if (!DataBase.getDataAuthor().containsKey(author.getId()))
-            throw new AuthorExceptionNoFound("There is no author with this id");
+            throw new AuthorExceptionNoFound("There is no author with this id: " + author.getId());
         DataBase.getDataAuthor().put(author.getId(), author);
         return author;
     }
