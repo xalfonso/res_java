@@ -11,7 +11,7 @@
     javax.json > javax.json-api > 1.0; org.glassfish > javax.json > 1.0.4
    2. Tips:
    Read json from File to Model Data (Tree in Memory). Create json model (Tree in Memory) and save to file. Read json data from file as stream. Write Json to file as Stream  
- 3. JavaRea
+ 3. JavaRea (Missing Api Rest Client for Test)
    1. Main Dependencies:
     javax.ws.rs > javax.ws.rs > 2.0.1; org.glassfish.jersey.containers > jersey-container-servlet-core > 2.24; junit > junit > 4.12; org.glassfish.jersey.containers > jersey-container-grizzly2-http > 2.24
    2. Tips:
