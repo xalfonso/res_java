@@ -27,19 +27,19 @@ public class MainApp4 {
         /**
          * Error will be throw because the numberBooks is > 100
          */
-        Author author = new Author("Nelson", "Eduardo", "Alfonso", "Martinez", 150, 2000.36f, "Adventure");
+        Author author = new Author("James ", "Clerk", "Maxwell", "Physical", 150, 2000.36f, "Adventure");
 
 
         /**
          *  ok
          */
-        Author author1 = new Author("Martha", "Paula", "Martinez", "Pozo", 50, 547.26f, "Horror");
+        Author author1 = new Author("John", "Henry", "Poynting", "Energy", 50, 547.26f, "Horror");
 
 
         /**
          * Error will be throw cause the genre is wrong
          */
-        Author author2 = new Author("Leydis", "Esther", "Garzon", "Giro", 80, 9666.36f, "Drama");
+        Author author2 = new Author("Augusta", "Ada", "King", "Noel", 80, 9666.36f, "Drama");
 
 
         /**
