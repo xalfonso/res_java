@@ -1,6 +1,6 @@
 # res_java. Research in Java API
 
-###1. Projects
+Projects
 1. JavaGea
    1. Main Packages:
     javax.xml.bind; org.xml.sax;
