@@ -26,3 +26,6 @@ Projects
 7. java-hemera
    1. Main Dependencies:
    2. Tips: Java Annotations Preprocessor
+8. java-eter
+   1. Main Dependencies:
+   2. Tips: Uso the Java Preprocessor create in java-hemera
