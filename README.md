@@ -23,3 +23,6 @@ Projects
 5. java-caos
    1. Main Dependencies:
    2. Tips: Some tests basic Lambda and Stream. For the first conference in krugle
+7. java-nix
+   1. Main Dependencies:
+   2. Tips: Java Annotations Preprocessor
