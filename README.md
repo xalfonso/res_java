@@ -20,4 +20,6 @@ Projects
    1. Main Packages:
     
    2. Tips:
-   
+5. java-caos
+   1. Main Dependencies:
+   2. Tips: Some tests basic Lambda and Stream. For the first conference in krugle
