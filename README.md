@@ -29,6 +29,6 @@ Projects
 8. java-eter
    1. Main Dependencies:
    2. Tips: Use the Java Preprocessor create in java-hemera
-9. java-eter
+9. java-temis
    1. Main Dependencies:
    2. Tips: Practice of Java 9
