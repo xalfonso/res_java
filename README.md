@@ -32,3 +32,9 @@ Projects
 9. java-temis
    1. Main Dependencies:
    2. Tips: Practice of Java 9
+10. java-erbo
+   1. Main Dependencies:
+   2. Tips: Java Printer  
+11. java-ceo
+   1. Main Dependencies:
+   2. Tips: Stream Java 8 Grouping by several key dinamically
