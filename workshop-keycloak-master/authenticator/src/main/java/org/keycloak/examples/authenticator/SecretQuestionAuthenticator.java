@@ -58,7 +58,7 @@ public class SecretQuestionAuthenticator implements Authenticator {
             context.success();
             return;
         }
-        Response challenge = context.form().createForm("secret-question.ftl");
+        Response challenge = context.form().setAttribute("question", SecretQuestionsUtil.getRandomQuestion()).createForm("secret-question.ftl");
         context.challenge(challenge);
     }
 
@@ -71,8 +71,9 @@ public class SecretQuestionAuthenticator implements Authenticator {
         }
         boolean validated = validateAnswer(context);
         if (!validated) {
-            Response challenge =  context.form()
-                    .setError("badSecret")
+            Response challenge = context.form()
+                    .setError("La respuesta es incorrecta")
+                    .setAttribute("question", SecretQuestionsUtil.getRandomQuestion())
                     .createForm("secret-question.ftl");
             context.failureChallenge(AuthenticationFlowError.INVALID_CREDENTIALS, challenge);
             return;
@@ -83,10 +84,9 @@ public class SecretQuestionAuthenticator implements Authenticator {
 
     protected void setCookie(AuthenticationFlowContext context) {
         AuthenticatorConfigModel config = context.getAuthenticatorConfig();
-        int maxCookieAge = 60 * 60 * 24 * 30; // 30 days
+        int maxCookieAge = 30;// 30 seconds
         if (config != null) {
             maxCookieAge = Integer.valueOf(config.getConfig().get("cookie.max.age"));
-
         }
         URI uri = context.getUriInfo().getBaseUriBuilder().path("realms").path(context.getRealm().getName()).build();
         addCookie("SECRET_QUESTION_ANSWERED", "true",
@@ -107,11 +107,12 @@ public class SecretQuestionAuthenticator implements Authenticator {
 
     protected boolean validateAnswer(AuthenticationFlowContext context) {
         MultivaluedMap<String, String> formData = context.getHttpRequest().getDecodedFormParameters();
-        String secret = formData.getFirst("secret_answer");
+        String secretAnswer = formData.getFirst("secret_answer");
+        String secretQuestion = formData.getFirst("secret_question");
         UserCredentialModel input = new UserCredentialModel();
         input.setType(SecretQuestionCredentialProvider.SECRET_QUESTION);
-        input.setValue(secret);
-        return context.getSession().userCredentialManager().isValid(context.getRealm(), context.getUser(), input);
+        input.setValue(secretAnswer);
+        return SecretQuestionsUtil.validate(secretQuestion, secretAnswer);
     }
 
     @Override
@@ -121,12 +122,12 @@ public class SecretQuestionAuthenticator implements Authenticator {
 
     @Override
     public boolean configuredFor(KeycloakSession session, RealmModel realm, UserModel user) {
-        return session.userCredentialManager().isConfiguredFor(realm, user, SecretQuestionCredentialProvider.SECRET_QUESTION);
+        return true;
     }
 
     @Override
-    public void setRequiredActions(KeycloakSession session, RealmModel realm, UserModel user) {
-        user.addRequiredAction(SecretQuestionRequiredAction.PROVIDER_ID);
+    public void setRequiredActions(KeycloakSession keycloakSession, RealmModel realmModel, UserModel userModel) {
+
     }
 
     @Override
