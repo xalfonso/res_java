@@ -1,0 +1,9 @@
+version: '3'
+services: 
+  gatekeeper:
+    image: keycloak/keycloak-gatekeeper:latest
+    ports: 
+    - "3000:3000"
+    command: ["--client-id=gatekeeper", "--client-secret=5f57ef0b-0201-4a15-9c78-8a6fd69cf9b6", "--discovery-url=http://10.10.51.67:8080/auth/realms/Production/.well-known/openid-configuration", "--listen=0.0.0.0:3000", "--redirection-url=http://10.10.51.67:3000", "--upstream-url=http://http-echo", "--secure-cookie=false", "--add-claims=test"]
+  http-echo:
+    image: mendhak/http-https-echo:latest

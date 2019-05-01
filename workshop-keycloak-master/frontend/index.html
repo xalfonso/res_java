@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Plain JS</title>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+
+    <script src="/auth/js/keycloak.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+<div class="wrapper" id="profile">
+    <div class="menu">
+        <button name="logoutBtn" onclick="keycloak.logout()">Logout</button>
+        <button name="actionBtn" onclick="performUserAction()">User</button>
+        <button name="actionBtn" onclick="performAdminAction()">Admin</button>
+    </div>
+
+    <div class="content">
+        <div id="profile-content" class="message">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="label">First name</td>
+                    <td><span id="firstName"></span></td>
+                </tr>
+                <tr class="even">
+                    <td class="label">Last name</td>
+                    <td><span id="lastName"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Username</td>
+                    <td><span id="username"></span></td>
+                </tr>
+                <tr class="even">
+                    <td class="label">Email</td>
+                    <td><span id="email"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" id="token">
+
+    <div class="content">
+        <div id="token-content" class="message"></div>
+    </div>
+
+</div>
+
+</body>
+
+</html>
