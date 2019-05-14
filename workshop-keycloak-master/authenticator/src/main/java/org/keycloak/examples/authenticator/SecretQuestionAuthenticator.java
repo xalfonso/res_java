@@ -34,6 +34,7 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import java.net.URI;
+import java.util.List;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
@@ -58,8 +59,25 @@ public class SecretQuestionAuthenticator implements Authenticator {
             context.success();
             return;
         }
-        Response challenge = context.form().setAttribute("question", SecretQuestionsUtil.getRandomQuestion()).createForm("secret-question.ftl");
-        context.challenge(challenge);
+
+        //TODO I need to get the system
+        List<SecretQuestionsUtil.QuestionVO> questions = SecretQuestionsUtil.getQuestions(context.getUser().getId(), "SOT");
+        if (!questions.isEmpty()) {
+            SecretQuestionsUtil.QuestionVO randomQuestion = SecretQuestionsUtil.getRandomQuestion(questions);
+
+            UserCredentialModel input = new UserCredentialModel();
+            input.setType(SecretQuestionCredentialProvider.SECRET_QUESTION);
+            input.setValue(randomQuestion.getAnswer());
+            context.getSession().userCredentialManager().updateCredential(context.getRealm(), context.getUser(), input);
+
+            Response challenge = context.form().setAttribute("question", randomQuestion.getQuestion()).createForm("secret-question.ftl");
+            context.challenge(challenge);
+
+            System.out.println("Se selecciono lo pregunta: " + randomQuestion.getQuestion());
+            System.out.println("Con respuesta: " + randomQuestion.getAnswer());
+        }
+
+
     }
 
     @Override
@@ -71,12 +89,27 @@ public class SecretQuestionAuthenticator implements Authenticator {
         }
         boolean validated = validateAnswer(context);
         if (!validated) {
-            Response challenge = context.form()
-                    .setError("La respuesta es incorrecta")
-                    .setAttribute("question", SecretQuestionsUtil.getRandomQuestion())
-                    .createForm("secret-question.ftl");
-            context.failureChallenge(AuthenticationFlowError.INVALID_CREDENTIALS, challenge);
-            return;
+            //TODO I need to get the system
+            List<SecretQuestionsUtil.QuestionVO> questions = SecretQuestionsUtil.getQuestions(context.getUser().getId(), "SOT");
+            if (!questions.isEmpty()) {
+                SecretQuestionsUtil.QuestionVO randomQuestion = SecretQuestionsUtil.getRandomQuestion(questions);
+
+                UserCredentialModel input = new UserCredentialModel();
+                input.setType(SecretQuestionCredentialProvider.SECRET_QUESTION);
+                input.setValue(randomQuestion.getAnswer());
+                context.getSession().userCredentialManager().updateCredential(context.getRealm(), context.getUser(), input);
+
+
+                Response challenge = context.form()
+                        .setError("La respuesta es incorrecta")
+                        .setAttribute("question", randomQuestion.getQuestion())
+                        .createForm("secret-question.ftl");
+                context.failureChallenge(AuthenticationFlowError.INVALID_CREDENTIALS, challenge);
+
+                System.out.println("Se selecciono  lo pregunta (Second): " + randomQuestion.getQuestion());
+                System.out.println("Con respuesta (Second): " + randomQuestion.getAnswer());
+                return;
+            }
         }
         setCookie(context);
         context.success();
@@ -108,11 +141,13 @@ public class SecretQuestionAuthenticator implements Authenticator {
     protected boolean validateAnswer(AuthenticationFlowContext context) {
         MultivaluedMap<String, String> formData = context.getHttpRequest().getDecodedFormParameters();
         String secretAnswer = formData.getFirst("secret_answer");
-        String secretQuestion = formData.getFirst("secret_question");
+        //String secretQuestion = formData.getFirst("secret_question");
         UserCredentialModel input = new UserCredentialModel();
         input.setType(SecretQuestionCredentialProvider.SECRET_QUESTION);
         input.setValue(secretAnswer);
-        return SecretQuestionsUtil.validate(secretQuestion, secretAnswer);
+        System.out.println("Se va a verificar la respuesta: " + secretAnswer);
+        return context.getSession().userCredentialManager().isValid(context.getRealm(), context.getUser(), input);
+        //return SecretQuestionsUtil.validate(secretQuestion, secretAnswer);
     }
 
     @Override
