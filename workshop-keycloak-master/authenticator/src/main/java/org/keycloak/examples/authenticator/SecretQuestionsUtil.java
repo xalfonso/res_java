@@ -23,8 +23,7 @@ public class SecretQuestionsUtil {
     public static String getRandomQuestion() {
         Random r = new Random();
         String[] questions = secretQuestionResponses.keySet().toArray(new String[]{});
-        String question = questions[r.nextInt(secretQuestionResponses.size())];
-        return question;
+        return questions[r.nextInt(secretQuestionResponses.size())];
     }
 
 }
