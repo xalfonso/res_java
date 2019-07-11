@@ -1,0 +1,1 @@
+Simple Example of aspectj with maven
