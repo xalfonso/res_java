@@ -33,7 +33,7 @@
         <version.jboss-ejb-api>1.0.0.Final</version.jboss-ejb-api>
         <arquillian-graphene.version>2.3.2</arquillian-graphene.version>
         <arquillian-phantom.version>1.2.1.Final</arquillian-phantom.version>
-        <version.junit>4.12</version.junit>
+        <version.junit>4.13.1</version.junit>
         <version.wildfly.maven.plugin>1.2.2.Final</version.wildfly.maven.plugin>
         <keycloak.version>4.6.0.Final</keycloak.version>
         <wildfly.version>11.0.0.Final</wildfly.version>
